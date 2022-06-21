@@ -1,0 +1,162 @@
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+.section {
+  max-width: 660px;
+  border: grey solid 3px;
+  padding: 0 30px;
+  background-image: url(images/cloudy.jpg);
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+/*search*/
+.search-icon {
+  position: absolute;
+  right: 7px;
+  color: grey;
+}
+
+.search-container {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  margin: 20px 0;
+  border: grey;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.search-container input[type="search"] {
+  padding-right: 22px;
+}
+
+/*main info*/
+.main-info {
+  margin-bottom: 20px;
+}
+.main--weather--description {
+  font-size: larger;
+  margin-bottom: 15px;
+}
+.indicator--value {
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+.main-info__city-temp {
+  margin-bottom: 15px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.current-position-button {
+  background-color: transparent;
+  margin: 20px 5px;
+  padding: 2px 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.current-date {
+  padding-left: 17px;
+}
+.current-weather-description {
+  padding: 10px 0px 0px 17px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.main-info__city-title {
+  text-transform: capitalize;
+}
+
+/*week description*/
+.weather--weekly {
+  border: grey solid 2px;
+  text-align: center;
+  font-size: 0, 5rem;
+}
+
+.weather--dayly {
+  border-right: grey solid 2px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.weather--dayly:last-child {
+  border-right: none;
+}
+
+.table--date {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.table--description,
+.table--temperature {
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.weather--img {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.weather--img--sun {
+  color: #e8e845;
+}
+
+.weather--image--cloud {
+  color: white;
+  text-shadow: 0 0 2px black;
+}
+.weather--image--rain {
+  color: #8d8dbc;
+}
+.table--indicator--value {
+  font-weight: 500;
+}
+
+.sun-and-cloud {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.sun-and-cloud .weather--img--sun {
+  font-size: 1.3rem;
+  position: absolute;
+  left: -6px;
+  top: -7px;
+  z-index: -1;
+}
+
+.sun-and-rain {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.sun-and-rain .weather--img--sun {
+  font-size: 1.3rem;
+  position: absolute;
+  left: -6px;
+  top: -7px;
+  z-index: -1;
+}
+
+footer {
+  text-align: center;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+footer a {
+  font-weight: 900;
+}
+
+.indicator--name {
+  display: inline-block;
+  min-width: 83px;
+}
+.date {
+  font-size: larger;
+}

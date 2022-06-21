@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/e862b198a6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col-4">
+            <form id="searching-form">
+              <div class="search-container">
+                <input
+                  class="search-input"
+                  type="search"
+                  placeholder="Type a city..."
+                />
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              </div>
+            </form>
+          </div>
+          <div class="col-4">
+            <button class="current-position-button">Current position</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col main-info">
+            <div class="col-9 main-info__city-name">
+              <h1 class="font-weight-bold mb-0 main-info__city-title">Kyiv</h1>
+              <h1 class="main-info__city-temp">
+                <span class="temp">5</span>
+                <a href="#" class="c-temp">°C</a> |
+                <a href="#" class="f-temp">°F</a>
+              </h1>
+            </div>
+            <time class="current-date">Tuesday, 13:31</time>
+            <div class="current-weather-description">Cloudy</div>
+          </div>
+
+          <div class="col main--weather--description">
+            <div class="indicator">
+              <span class="indicator--name">Humidity</span>
+              <span class="indicator--value">86%</span>
+            </div>
+            <div class="indicator">
+              <span class="indicator--name">NNW</span>
+              <span class="indicator--value">17mph</span>
+            </div>
+            <div class="indicator">
+              <span class="indicator--name">UV index</span>
+              <span class="indicator--value">0 of 10</span>
+            </div>
+            <div class="indicator">
+              <span class="indicator--name">Moonrise</span>
+              <span class="indicator--value">2:21am</span>
+              <br />
+              <span class="indicator--name">Moonset</span>
+              <span class="indicator--value">11:23am</span>
+            </div>
+          </div>
+        </div>
+        <!--row for header-->
+
+        <div class="row weather--weekly">
+          <div class="col weather--dayly">
+            <div class="table--date">
+              Monday <br />
+              23.05
+            </div>
+            <i class="fa-solid fa-cloud weather--img weather--image--cloud"></i>
+            <div class="table--temperature">+8° / +4°</div>
+            <div class="table--description">Cloudy</div>
+            <div class="table--indicator">Humidity</div>
+            <div class="table--indicator--value">86%</div>
+            <div class="table--indicator">UV index</div>
+            <div class="table--indicator--value">1 of 10</div>
+            <div class="table--indicator">Moonrise</div>
+            <div class="table--indicator--value">2:21 am</div>
+            <div class="table--indicator">Moonset</div>
+            <div class="table--indicator--value">11:23 am</div>
+          </div>
+
+          <div class="col weather--dayly">
+            <div class="table--date">
+              Tuesday <br />
+              24.05
+            </div>
+            <i class="fa-solid fa-sun weather--img weather--img--sun"></i>
+            <div class="table--temperature">+10° / +4°</div>
+            <div class="table--description">Sunny</div>
+            <div class="table--indicator">Humidity</div>
+            <div class="table--indicator--value">86%</div>
+            <div class="table--indicator">UV index</div>
+            <div class="table--indicator--value">3 of 10</div>
+            <div class="table--indicator">Moonrise</div>
+            <div class="table--indicator--value">2:21 am</div>
+            <div class="table--indicator">Moonset</div>
+            <div class="table--indicator--value">11:23 am</div>
+          </div>
+
+          <div class="col weather--dayly">
+            <div class="table--date">
+              Wednesday <br />
+              25.05
+            </div>
+            <i
+              class="fa-solid fa-cloud-showers-heavy weather--img weather--image--rain"
+            ></i>
+
+            <div class="table--temperature">+6° / +2°</div>
+            <div class="table--description">Stormy</div>
+            <div class="table--indicator">Humidity</div>
+            <div class="table--indicator--value">86%</div>
+            <div class="table--indicator">UV index</div>
+            <div class="table--indicator--value">0 of 10</div>
+            <div class="table--indicator">Moonrise</div>
+            <div class="table--indicator--value">2:21 am</div>
+            <div class="table--indicator">Moonset</div>
+            <div class="table--indicator--value">11:23 am</div>
+          </div>
+
+          <div class="col weather--dayly">
+            <div class="table--date">
+              Thursday <br />
+              26.05
+            </div>
+            <div class="sun-and-cloud">
+              <i class="fa-solid fa-sun weather--img weather--img--sun"></i>
+              <i
+                class="fa-solid fa-cloud weather--img weather--image--cloud"
+              ></i>
+            </div>
+            <div class="table--temperature">+8° / +4°</div>
+            <div class="table--description">Cloudy</div>
+            <div class="table--indicator">Humidity</div>
+            <div class="table--indicator--value">86%</div>
+            <div class="table--indicator">UV index</div>
+            <div class="table--indicator--value">0 of 10</div>
+            <div class="table--indicator">Moonrise</div>
+            <div class="table--indicator--value">2:21 am</div>
+            <div class="table--indicator">Moonset</div>
+            <div class="table--indicator--value">11:23 am</div>
+          </div>
+
+          <div class="col weather--dayly">
+            <div class="table--date">
+              Friday <br />
+              27.05
+            </div>
+            <div class="sun-and-rain">
+              <i class="fa-solid fa-sun weather--img weather--img--sun"></i>
+              <i
+                class="fa-solid fa-cloud-showers-heavy weather--img weather--image--rain"
+              ></i>
+            </div>
+
+            <div class="table--temperature">+8° / +4°</div>
+            <div class="table--description">Rainy</div>
+            <div class="table--indicator">Humidity</div>
+            <div class="table--indicator--value">86%</div>
+            <div class="table--indicator">UV index</div>
+            <div class="table--indicator--value">0 of 10</div>
+            <div class="table--indicator">Moonrise</div>
+            <div class="table--indicator--value">2:21 am</div>
+            <div class="table--indicator">Moonset</div>
+            <div class="table--indicator--value">11:23 am</div>
+          </div>
+        </div>
+
+        <footer>
+          Additional information and <a href="url" target="_blank">links</a>
+        </footer>
+      </div>
+      <!--section-->
+    </div>
+    <!--container-->
+    <script src="script.js"></script>
+  </body>
+</html>
