@@ -56,7 +56,7 @@ let apiKey = "31be422c13c4e30e5166b078a65d2565";
 function showCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector(".search-input");
-  let cityName = document.querySelector(".main-info__city-title");
+  let cityName = document.querySelector(".current-weather__city_title");
   cityName.innerHTML = searchInput.value;
   let cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&&units=metric`;
   axios.get(cityUrl).then(showCityWeather);
@@ -70,7 +70,7 @@ function showCityWeather(response) {
   let currentTemperature = document.querySelector(".temp");
   let weatherDescription = response.data.weather[0].description;
   let currentWeatherDescription = document.querySelector(
-    ".current-weather-description"
+    ".current-weather__description"
   );
   currentTemperature.innerHTML = temperature;
   currentWeatherDescription.innerHTML = weatherDescription;
@@ -91,10 +91,10 @@ function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemperature = document.querySelector(".temp");
   currentTemperature.innerHTML = temperature;
-  let cityName = document.querySelector(".main-info__city-title");
+  let cityName = document.querySelector(".current-weather__city_title");
   cityName.innerHTML = response.data.name;
   let currentWeatherDescription = document.querySelector(
-    ".current-weather-description"
+    ".current-weather__description"
   );
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
 }

@@ -46,146 +46,150 @@
         </div>
 
         <div class="row">
-          <div class="col main-info">
-            <div class="col-9 main-info__city-name">
-              <h1 class="font-weight-bold mb-0 main-info__city-title">Kyiv</h1>
-              <h1 class="main-info__city-temp">
+          <div class="col current-weather">
+            <div class="col-9 current-weather__city">
+              <h1 class="font-weight-bold mb-0 current-weather__city_title">
+                Kyiv
+              </h1>
+              <h1 class="current-weather__temp">
                 <span class="temp">5</span>
                 <a href="#" class="c-temp">°C</a> |
                 <a href="#" class="f-temp">°F</a>
               </h1>
             </div>
             <time class="current-date">Tuesday, 13:31</time>
-            <div class="current-weather-description">Cloudy</div>
+            <div class="current-weather__description">Cloudy</div>
           </div>
 
-          <div class="col main--weather--description">
+          <div class="col current-weather__add-description">
             <div class="indicator">
-              <span class="indicator--name">Humidity</span>
-              <span class="indicator--value">86%</span>
+              <span class="indicator-name">Humidity</span>
+              <span class="indicator-value">86%</span>
             </div>
             <div class="indicator">
-              <span class="indicator--name">NNW</span>
-              <span class="indicator--value">17mph</span>
+              <span class="indicator-name">NNW</span>
+              <span class="indicator-value">17mph</span>
             </div>
             <div class="indicator">
-              <span class="indicator--name">UV index</span>
-              <span class="indicator--value">0 of 10</span>
+              <span class="indicator-name">UV index</span>
+              <span class="indicator-value">0 of 10</span>
             </div>
             <div class="indicator">
-              <span class="indicator--name">Moonrise</span>
-              <span class="indicator--value">2:21am</span>
+              <span class="indicator-name">Moonrise</span>
+              <span class="indicator-value">2:21am</span>
               <br />
-              <span class="indicator--name">Moonset</span>
-              <span class="indicator--value">11:23am</span>
+              <span class="indicator-name">Moonset</span>
+              <span class="indicator-value">11:23am</span>
             </div>
           </div>
         </div>
         <!--row for header-->
 
-        <div class="row weather--weekly">
-          <div class="col weather--dayly">
-            <div class="table--date">
+        <div class="row forecast">
+          <div class="col weather-dayly">
+            <div class="forecast__date">
               Monday <br />
               23.05
             </div>
-            <i class="fa-solid fa-cloud weather--img weather--image--cloud"></i>
-            <div class="table--temperature">+8° / +4°</div>
-            <div class="table--description">Cloudy</div>
-            <div class="table--indicator">Humidity</div>
-            <div class="table--indicator--value">86%</div>
-            <div class="table--indicator">UV index</div>
-            <div class="table--indicator--value">1 of 10</div>
-            <div class="table--indicator">Moonrise</div>
-            <div class="table--indicator--value">2:21 am</div>
-            <div class="table--indicator">Moonset</div>
-            <div class="table--indicator--value">11:23 am</div>
+            <i
+              class="fa-solid fa-cloud forecast__img forecast__image_cloud"
+            ></i>
+            <div class="forecast__temp">+8° / +4°</div>
+            <div class="forecast__description">Cloudy</div>
+            <div class="forecast__indicator">Humidity</div>
+            <div class="forecast__indicator_humidity">86%</div>
+            <div class="forecast__indicator">UV index</div>
+            <div class="forecast__indicator_UVIndex">1 of 10</div>
+            <div class="forecast__indicator">Moonrise</div>
+            <div class="forecast__indicator_moonrise">2:21 am</div>
+            <div class="forecast__indicator">Moonset</div>
+            <div class="forecast__indicator_moonset">11:23 am</div>
           </div>
 
-          <div class="col weather--dayly">
-            <div class="table--date">
+          <div class="col weather-dayly">
+            <div class="forecast__date">
               Tuesday <br />
               24.05
             </div>
-            <i class="fa-solid fa-sun weather--img weather--img--sun"></i>
-            <div class="table--temperature">+10° / +4°</div>
-            <div class="table--description">Sunny</div>
-            <div class="table--indicator">Humidity</div>
-            <div class="table--indicator--value">86%</div>
-            <div class="table--indicator">UV index</div>
-            <div class="table--indicator--value">3 of 10</div>
-            <div class="table--indicator">Moonrise</div>
-            <div class="table--indicator--value">2:21 am</div>
-            <div class="table--indicator">Moonset</div>
-            <div class="table--indicator--value">11:23 am</div>
+            <i class="fa-solid fa-sun forecast__img forecast__image_sun"></i>
+            <div class="forecast__temp">+10° / +4°</div>
+            <div class="forecast__description">Sunny</div>
+            <div class="forecast__indicator">Humidity</div>
+            <div class="forecast__indicator_humidity">86%</div>
+            <div class="forecast__indicator">UV index</div>
+            <div class="forecast__indicator_UVIndex">3 of 10</div>
+            <div class="forecast__indicator">Moonrise</div>
+            <div class="forecast__indicator_moonrise">2:21 am</div>
+            <div class="forecast__indicator">Moonset</div>
+            <div class="forecast__indicator_moonset">11:23 am</div>
           </div>
 
-          <div class="col weather--dayly">
-            <div class="table--date">
+          <div class="col weather-dayly">
+            <div class="forecast__date">
               Wednesday <br />
               25.05
             </div>
             <i
-              class="fa-solid fa-cloud-showers-heavy weather--img weather--image--rain"
+              class="fa-solid fa-cloud-showers-heavy forecast__img forecast__image_rain"
             ></i>
 
-            <div class="table--temperature">+6° / +2°</div>
-            <div class="table--description">Stormy</div>
-            <div class="table--indicator">Humidity</div>
-            <div class="table--indicator--value">86%</div>
-            <div class="table--indicator">UV index</div>
-            <div class="table--indicator--value">0 of 10</div>
-            <div class="table--indicator">Moonrise</div>
-            <div class="table--indicator--value">2:21 am</div>
-            <div class="table--indicator">Moonset</div>
-            <div class="table--indicator--value">11:23 am</div>
+            <div class="forecast__temp">+6° / +2°</div>
+            <div class="forecast__description">Stormy</div>
+            <div class="forecast__indicator">Humidity</div>
+            <div class="forecast__indicator_humidity">86%</div>
+            <div class="forecast__indicator">UV index</div>
+            <div class="forecast__indicator_UVIndex">0 of 10</div>
+            <div class="forecast__indicator">Moonrise</div>
+            <div class="forecast__indicator_moonrise">2:21 am</div>
+            <div class="forecast__indicator">Moonset</div>
+            <div class="forecast__indicator_moonset">11:23 am</div>
           </div>
 
-          <div class="col weather--dayly">
-            <div class="table--date">
+          <div class="col weather-dayly">
+            <div class="forecast__date">
               Thursday <br />
               26.05
             </div>
             <div class="sun-and-cloud">
-              <i class="fa-solid fa-sun weather--img weather--img--sun"></i>
+              <i class="fa-solid fa-sun forecast__img forecast__image_sun"></i>
               <i
-                class="fa-solid fa-cloud weather--img weather--image--cloud"
+                class="fa-solid fa-cloud forecast__img forecast__image_cloud"
               ></i>
             </div>
-            <div class="table--temperature">+8° / +4°</div>
-            <div class="table--description">Cloudy</div>
-            <div class="table--indicator">Humidity</div>
-            <div class="table--indicator--value">86%</div>
-            <div class="table--indicator">UV index</div>
-            <div class="table--indicator--value">0 of 10</div>
-            <div class="table--indicator">Moonrise</div>
-            <div class="table--indicator--value">2:21 am</div>
-            <div class="table--indicator">Moonset</div>
-            <div class="table--indicator--value">11:23 am</div>
+            <div class="forecast__temp">+8° / +4°</div>
+            <div class="forecast__description">Cloudy</div>
+            <div class="forecast__indicator">Humidity</div>
+            <div class="forecast__indicator_humidity">86%</div>
+            <div class="forecast__indicator">UV index</div>
+            <div class="forecast__indicator_UVIndex">0 of 10</div>
+            <div class="forecast__indicator">Moonrise</div>
+            <div class="forecast__indicator_moonrise">2:21 am</div>
+            <div class="forecast__indicator">Moonset</div>
+            <div class="forecast__indicator_moonset">11:23 am</div>
           </div>
 
-          <div class="col weather--dayly">
-            <div class="table--date">
+          <div class="col weather-dayly">
+            <div class="forecast__date">
               Friday <br />
               27.05
             </div>
             <div class="sun-and-rain">
-              <i class="fa-solid fa-sun weather--img weather--img--sun"></i>
+              <i class="fa-solid fa-sun forecast__img forecast__image_sun"></i>
               <i
-                class="fa-solid fa-cloud-showers-heavy weather--img weather--image--rain"
+                class="fa-solid fa-cloud-showers-heavy forecast__img forecast__image_rain"
               ></i>
             </div>
 
-            <div class="table--temperature">+8° / +4°</div>
-            <div class="table--description">Rainy</div>
-            <div class="table--indicator">Humidity</div>
-            <div class="table--indicator--value">86%</div>
-            <div class="table--indicator">UV index</div>
-            <div class="table--indicator--value">0 of 10</div>
-            <div class="table--indicator">Moonrise</div>
-            <div class="table--indicator--value">2:21 am</div>
-            <div class="table--indicator">Moonset</div>
-            <div class="table--indicator--value">11:23 am</div>
+            <div class="forecast__temp">+8° / +4°</div>
+            <div class="forecast__description">Rainy</div>
+            <div class="forecast__indicator">Humidity</div>
+            <div class="forecast__indicator_humidity">86%</div>
+            <div class="forecast__indicator">UV index</div>
+            <div class="forecast__indicator_UVIndex">0 of 10</div>
+            <div class="forecast__indicator">Moonrise</div>
+            <div class="forecast__indicator_moonrise">2:21 am</div>
+            <div class="forecast__indicator">Moonset</div>
+            <div class="forecast__indicator_moonset">11:23 am</div>
           </div>
         </div>
 

@@ -33,20 +33,20 @@ input[type="search"]::-webkit-search-cancel-button {
   padding-right: 22px;
 }
 
-/*main info*/
-.main-info {
+/*current weather*/
+.current-weather {
   margin-bottom: 20px;
 }
-.main--weather--description {
+.current-weather__add-description {
   font-size: larger;
   margin-bottom: 15px;
 }
-.indicator--value {
+.indicator-value {
   font-weight: 600;
   color: white;
   text-shadow: 0 0 10px black;
 }
-.main-info__city-temp {
+.current-weather__temp {
   margin-bottom: 15px;
   padding-left: 0;
   padding-right: 0;
@@ -61,58 +61,61 @@ input[type="search"]::-webkit-search-cancel-button {
 .current-date {
   padding-left: 17px;
 }
-.current-weather-description {
+.current-weather__description {
   padding: 10px 0px 0px 17px;
   font-weight: 600;
   text-transform: capitalize;
 }
-.main-info__city-title {
+.current-weather__city_title {
   text-transform: capitalize;
 }
 
 /*week description*/
-.weather--weekly {
+.forecast {
   border: grey solid 2px;
   text-align: center;
   font-size: 0, 5rem;
 }
 
-.weather--dayly {
+.weather-dayly {
   border-right: grey solid 2px;
   padding-bottom: 15px;
   padding-top: 15px;
 }
 
-.weather--dayly:last-child {
+.weather-dayly:last-child {
   border-right: none;
 }
 
-.table--date {
+.forecast__date {
   font-size: 1rem;
   font-weight: 500;
 }
-.table--description,
-.table--temperature {
+.forecast__description,
+.forecast__temp {
   margin: 10px 0;
   font-size: 1rem;
   font-weight: 500;
 }
-.weather--img {
+.forecast__img {
   font-size: 1.5rem;
   margin-top: 10px;
 }
-.weather--img--sun {
+.forecast__image_sun {
   color: #e8e845;
 }
 
-.weather--image--cloud {
+.forecast__image_cloud {
   color: white;
   text-shadow: 0 0 2px black;
 }
-.weather--image--rain {
+.forecast__image_rain {
   color: #8d8dbc;
 }
-.table--indicator--value {
+.forecast__indicator_humidity,
+.forecast__indicator_UVIndex,
+.forecast__indicator_moonrise,
+.forecast__indicator_moonset {
   font-weight: 500;
 }
 
@@ -122,7 +125,7 @@ input[type="search"]::-webkit-search-cancel-button {
   z-index: 1;
 }
 
-.sun-and-cloud .weather--img--sun {
+.sun-and-cloud .forecast__image_sun {
   font-size: 1.3rem;
   position: absolute;
   left: -6px;
@@ -135,7 +138,7 @@ input[type="search"]::-webkit-search-cancel-button {
   display: inline-block;
   z-index: 1;
 }
-.sun-and-rain .weather--img--sun {
+.sun-and-rain .forecast__image_sun {
   font-size: 1.3rem;
   position: absolute;
   left: -6px;
@@ -153,7 +156,7 @@ footer a {
   font-weight: 900;
 }
 
-.indicator--name {
+.indicator-name {
   display: inline-block;
   min-width: 83px;
 }
