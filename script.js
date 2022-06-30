@@ -20,8 +20,8 @@ function formatDate(timestamp) {
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
-    return `${day}, ${hours}:${minutes}`;
   }
+  return `${day}, ${hours}:${minutes}`;
 }
 
 //Celsius and Fahrenheit
