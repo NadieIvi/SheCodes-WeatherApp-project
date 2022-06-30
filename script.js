@@ -1,26 +1,6 @@
-// Current date
-// let now = new Date();
-// let days = [
-//   "Sunday",
-//   "Monday",
-//   "Tuesday",
-//   "Wednesday",
-//   "Thursday",
-//   "Friday",
-//   "Saturday",
-// ];
-// let day = days[now.getDay()];
-// let hours = now.getHours();
-// if (hours < 10) {
-//   hours = `0${hours}`;
-// }
-// let minutes = now.getMinutes();
-// if (minutes < 10) {
-//   minutes = `0${minutes}`;
-// }
-// let currentDate = document.querySelector(".current-date");
-// currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
+let apiKey = "31be422c13c4e30e5166b078a65d2565";
 
+// Current date
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let days = [
@@ -73,8 +53,6 @@ function formatDate(timestamp) {
 //   .addEventListener("click", celsiusToFahrenheit);
 
 //to show city and its weather
-
-let apiKey = "31be422c13c4e30e5166b078a65d2565";
 
 function showCity(event) {
   event.preventDefault();
