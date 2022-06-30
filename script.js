@@ -66,14 +66,17 @@ let form = document.querySelector("#searching-form");
 form.addEventListener("submit", showCity);
 
 function showCityWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let currentTemperature = document.querySelector(".temp");
-  let weatherDescription = response.data.weather[0].description;
+  let temperature = document.querySelector(".temp");
   let currentWeatherDescription = document.querySelector(
     ".current-weather__description"
   );
-  currentTemperature.innerHTML = temperature;
-  currentWeatherDescription.innerHTML = weatherDescription;
+  let humidity = document.querySelector(".humidity");
+  let wind = document.querySelector(".wind");
+
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  currentWeatherDescription.innerHTML = response.data.weather[0].description;
+  wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
+  humidity.innerHTML = `${response.data.main.humidity}%`;
 }
 
 //to show weather of current position
@@ -88,15 +91,19 @@ function getCurrentPosition() {
 }
 
 function showWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let currentTemperature = document.querySelector(".temp");
-  currentTemperature.innerHTML = temperature;
+  let temperature = document.querySelector(".temp");
   let cityName = document.querySelector(".current-weather__city_title");
-  cityName.innerHTML = response.data.name;
   let currentWeatherDescription = document.querySelector(
     ".current-weather__description"
   );
+  let humidity = document.querySelector(".humidity");
+  let wind = document.querySelector(".wind");
+
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  cityName.innerHTML = response.data.name;
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
+  wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
+  humidity.innerHTML = `${response.data.main.humidity}%`;
 }
 
 let button = document.querySelector(".current-position-button");
