@@ -1,25 +1,48 @@
 // Current date
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+// let now = new Date();
+// let days = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+// ];
+// let day = days[now.getDay()];
+// let hours = now.getHours();
+// if (hours < 10) {
+//   hours = `0${hours}`;
+// }
+// let minutes = now.getMinutes();
+// if (minutes < 10) {
+//   minutes = `0${minutes}`;
+// }
+// let currentDate = document.querySelector(".current-date");
+// currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+    return `${day}, ${hours}:${minutes}`;
+  }
 }
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-let currentDate = document.querySelector(".current-date");
-currentDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
 //Celsius and Fahrenheit
 // let measure = "c";
@@ -72,11 +95,13 @@ function showCityWeather(response) {
   );
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind");
+  let date = document.querySelector(".current-date");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
+  date.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 //to show weather of current position
@@ -98,12 +123,14 @@ function showWeather(response) {
   );
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind");
+  let date = document.querySelector(".current-date");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
   cityName.innerHTML = response.data.name;
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
+  date.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let button = document.querySelector(".current-position-button");
