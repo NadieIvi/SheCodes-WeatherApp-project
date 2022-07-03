@@ -1,4 +1,7 @@
 let apiKey = "31be422c13c4e30e5166b078a65d2565";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Zhytomyr&appid=${apiKey}&&units=metric`;
+
+axios.get(apiUrl).then(showWeather);
 
 // Current date
 function formatDate(timestamp) {
@@ -108,11 +111,8 @@ function showWeather(response) {
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
-  console.log(response.data.timezone);
   date.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let button = document.querySelector(".current-position-button");
 button.addEventListener("click", getCurrentPosition);
-
-showCityWeather("Zhytomyr");
