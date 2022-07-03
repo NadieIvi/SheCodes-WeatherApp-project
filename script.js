@@ -75,6 +75,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 //Celsius and Fahrenheit
