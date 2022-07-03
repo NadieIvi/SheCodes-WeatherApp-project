@@ -27,8 +27,6 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
-//Celsius and Fahrenheit
-
 //to show city and its weather
 
 function showCity(event) {
@@ -65,7 +63,8 @@ function showWeather(response) {
   let date = document.querySelector(".current-date");
   let icon = document.querySelector(".current-weather__icon");
 
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  cTemp = response.data.main.temp;
+  temperature.innerHTML = Math.round(cTemp);
   cityName.innerHTML = response.data.name;
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
@@ -77,6 +76,34 @@ function showWeather(response) {
   );
   icon.setAttribute("alt", response.data.weather[0].description);
 }
+
+//Celsius and Fahrenheit
+function showFTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector(".temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fTemp = (cTemp * 9) / 5 + 32;
+
+  temperature.innerHTML = Math.round(fTemp);
+}
+
+function showCTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector(".temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
+  temperature.innerHTML = Math.round(cTemp);
+}
+
+let fahrenheitLink = document.querySelector(".f-temp");
+fahrenheitLink.addEventListener("click", showFTemp);
+
+let celsiusLink = document.querySelector(".c-temp");
+celsiusLink.addEventListener("click", showCTemp);
+
+let cTemp = null;
 
 let button = document.querySelector(".current-position-button");
 button.addEventListener("click", getCurrentPosition);

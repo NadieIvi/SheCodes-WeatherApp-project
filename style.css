@@ -79,9 +79,14 @@ input[type="search"]::-webkit-search-cancel-button {
 .line {
   font-size: 25px;
 }
-.current-weather__icon {
+.active {
+  color: black;
+  cursor: default;
 }
-
+.active:hover {
+  text-decoration: none;
+  color: black;
+}
 /*week description*/
 .forecast {
   border: grey solid 2px;
