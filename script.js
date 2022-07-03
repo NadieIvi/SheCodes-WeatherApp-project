@@ -28,32 +28,6 @@ function formatDate(timestamp) {
 }
 
 //Celsius and Fahrenheit
-// let measure = "c";
-// function celsiusToFahrenheit() {
-//   if (measure == "f") return;
-//   event.preventDefault();
-//   let tempContainer = document.querySelector(".temp");
-//   let temp = tempContainer.innerText;
-//   temp = (temp * 9) / 5 + 32;
-//   tempContainer.innerHTML = temp;
-//   measure = "f";
-// }
-// function fahrenheitToCelsius() {
-//   if (measure == "c") return;
-//   event.preventDefault();
-//   let tempContainer = document.querySelector(".temp");
-//   let temp = tempContainer.innerText;
-//   temp = ((temp - 32) * 5) / 9;
-//   tempContainer.innerHTML = temp;
-//   measure = "c";
-// }
-
-// document
-//   .querySelector(".c-temp")
-//   .addEventListener("click", fahrenheitToCelsius);
-// document
-//   .querySelector(".f-temp")
-//   .addEventListener("click", celsiusToFahrenheit);
 
 //to show city and its weather
 
@@ -63,27 +37,11 @@ function showCity(event) {
   let cityName = document.querySelector(".current-weather__city_title");
   cityName.innerHTML = searchInput.value;
   let cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&&units=metric`;
-  axios.get(cityUrl).then(showCityWeather);
+  axios.get(cityUrl).then(showWeather);
 }
 let searchInput = document.querySelector(".search-input");
 let form = document.querySelector("#searching-form");
 form.addEventListener("submit", showCity);
-
-function showCityWeather(response) {
-  let temperature = document.querySelector(".temp");
-  let currentWeatherDescription = document.querySelector(
-    ".current-weather__description"
-  );
-  let humidity = document.querySelector(".humidity");
-  let wind = document.querySelector(".wind");
-  let date = document.querySelector(".current-date");
-
-  temperature.innerHTML = Math.round(response.data.main.temp);
-  currentWeatherDescription.innerHTML = response.data.weather[0].description;
-  wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
-  humidity.innerHTML = `${response.data.main.humidity}%`;
-  date.innerHTML = formatDate(response.data.dt * 1000);
-}
 
 //to show weather of current position
 
@@ -105,6 +63,7 @@ function showWeather(response) {
   let humidity = document.querySelector(".humidity");
   let wind = document.querySelector(".wind");
   let date = document.querySelector(".current-date");
+  let icon = document.querySelector(".current-weather__icon");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
   cityName.innerHTML = response.data.name;
@@ -112,6 +71,11 @@ function showWeather(response) {
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
   date.innerHTML = formatDate(response.data.dt * 1000);
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 let button = document.querySelector(".current-position-button");
