@@ -108,8 +108,11 @@ function showWeather(response) {
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
+  console.log(response.data.timezone);
   date.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let button = document.querySelector(".current-position-button");
 button.addEventListener("click", getCurrentPosition);
+
+showCityWeather("Zhytomyr");
