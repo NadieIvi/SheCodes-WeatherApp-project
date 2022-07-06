@@ -27,6 +27,19 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function showHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
 //to show city and its weather
 
 function showCity(event) {
@@ -52,6 +65,36 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col weather-dayly">
+            <div class="forecast__date">
+              ${day} <br />
+              23.05
+            </div>
+            <img src="" alt="" class=" forecast__img "/>
+            <div class="forecast__temp">
+            <span class="forecast__temp_max">+8</span>° / 
+            <span class="forecast__temp_min">+4</span>°</div>
+            <div class="forecast__description">Cloudy
+            </div>
+            <div class="forecast__indicator">Humidity</div>
+            <div class="forecast__indicator_humidity">86%</div>
+            <div class="forecast__indicator">Sunrise</div>
+            <div class="forecast__indicator_sunrise">2:21 am</div>
+            <div class="forecast__indicator">Sunset</div>
+            <div class="forecast__indicator_sunset">11:23 am</div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   let temperature = document.querySelector(".temp");
   let cityName = document.querySelector(".current-weather__city_title");
@@ -62,6 +105,10 @@ function showWeather(response) {
   let wind = document.querySelector(".wind");
   let date = document.querySelector(".current-date");
   let icon = document.querySelector(".current-weather__icon");
+  let sunrise = document.querySelector(".sunrise");
+  let sunset = document.querySelector(".sunset");
+
+  displayForecast();
 
   cTemp = response.data.main.temp;
   temperature.innerHTML = Math.round(cTemp);
@@ -70,6 +117,8 @@ function showWeather(response) {
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
   date.innerHTML = formatDate(response.data.dt * 1000);
+  sunrise.innerHTML = showHours(response.data.sys.sunrise * 1000);
+  sunset.innerHTML = showHours(response.data.sys.sunset * 1000);
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
