@@ -26,9 +26,9 @@
   </head>
   <body>
     <div class="container">
-      <div class="section">
+      <div class="section" id="background">
         <div class="row">
-          <div class="col-4">
+          <div class="col-auto">
             <form id="searching-form">
               <div class="search-container">
                 <input
@@ -36,35 +36,36 @@
                   type="search"
                   placeholder="Type a city..."
                 />
+                <i class="fa-solid fa-xmark cancel-icon"></i>
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
               </div>
             </form>
           </div>
-          <div class="col-4">
-            <button class="current-position-button">Current position</button>
+          <div class="col">
+            <button class="current-position-button">
+              <i class="fa-solid fa-house"></i>
+            </button>
           </div>
         </div>
 
+        <h1 class="font-weight-bold mb-0 current-weather__city_title"></h1>
+        <div class="current-weather__info">
+          <time class="current-date"></time>
+
+          <div class="current-weather__description"></div>
+        </div>
         <div class="row">
-          <div class="col current-weather">
-            <div class="col current-weather__city">
-              <h1
-                class="font-weight-bold mb-0 current-weather__city_title"
-              ></h1>
+          <div class="col-auto current-weather">
+            <div class="current-weather__city">
               <h1 class="current-weather__temp">
                 <img src="" alt="" class="current-weather__icon" />
                 <span class="temp"></span>
-                <a href="#" class="c-temp active">°C</a>
-                <span class="line">|</span>
-                <a href="#" class="f-temp">°F</a>
+                <span class="c-temp">°C</span>
               </h1>
             </div>
-            <time class="current-date"></time>
-            <div class="current-weather__description"></div>
           </div>
 
-          <div class="col current-weather__add-description">
-            <br />
+          <div class="col-auto current-weather__add-description">
             <br />
             <div class="indicator">
               <span class="indicator-name">Humidity</span>
@@ -74,13 +75,6 @@
               <span class="indicator-name">Wind</span>
               <span class="indicator-value wind"></span>
             </div>
-            <!-- <div class="indicator">
-              <span class="indicator-name">Sunrise</span>
-              <span class="indicator-value sunrise"></span>
-              <br />
-              <span class="indicator-name">Sunset</span>
-              <span class="indicator-value sunset"></span>
-            </div> -->
           </div>
         </div>
         <!--row for header-->

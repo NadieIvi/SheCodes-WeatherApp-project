@@ -1,4 +1,4 @@
-// Current date
+// date
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let days = [
@@ -86,8 +86,8 @@ form.addEventListener("submit", handleSubmit);
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(response);
   let forecastElement = document.querySelector(".forecast");
+
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
@@ -128,7 +128,7 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   let apiKey = "31be422c13c4e30e5166b078a65d2565";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -142,8 +142,7 @@ function showWeather(response) {
   let wind = document.querySelector(".wind");
   let date = document.querySelector(".current-date");
   let icon = document.querySelector(".current-weather__icon");
-  // let sunrise = document.querySelector(".sunrise");
-  // let sunset = document.querySelector(".sunset");
+  let country = response.data.sys.country;
 
   cTemp = response.data.main.temp;
   temperature.innerHTML = Math.round(cTemp);
@@ -152,17 +151,23 @@ function showWeather(response) {
   wind.innerHTML = `${Math.round(response.data.wind.speed)}Km/H`;
   humidity.innerHTML = `${response.data.main.humidity}%`;
   date.innerHTML = formatDate(response.data.dt * 1000);
-  // sunrise.innerHTML = showHours(response.data.sys.sunrise * 1000);
-  // sunset.innerHTML = showHours(response.data.sys.sunset * 1000);
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
 
   getForecast(response.data.coord);
+  if (country === "UA") {
+    document.getElementById("background").style.backgroundImage =
+      "url(images/UA.jpg)";
+  } else if (country === "RU") {
+    document.getElementById("background").style.backgroundImage =
+      "url(images/RU.jpg)";
+  } else {
+    document.getElementById("background").style.backgroundImage =
+      "url(images/cloudy.jpg)";
+  }
 }
 
 // to show weather of current position
@@ -170,42 +175,25 @@ function showWeather(response) {
 function showPosition(position) {
   let apiKey = "31be422c13c4e30e5166b078a65d2565";
   let currentPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(currentPositionUrl).then(showWeather);
+  axios.get(currentPositionUrl).then(showWeather).then(cancelCityInput);
 }
 
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-//Celsius and Fahrenheit
-function showFTemp(event) {
-  event.preventDefault();
-  let temperature = document.querySelector(".temp");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fTemp = (cTemp * 9) / 5 + 32;
-
-  temperature.innerHTML = Math.round(fTemp);
+function cancelCityInput() {
+  let searchInput = document.querySelector(".search-input");
+  searchInput.value = "";
 }
-
-function showCTemp(event) {
-  event.preventDefault();
-  let temperature = document.querySelector(".temp");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-
-  temperature.innerHTML = Math.round(cTemp);
-}
-
-let fahrenheitLink = document.querySelector(".f-temp");
-fahrenheitLink.addEventListener("click", showFTemp);
-
-let celsiusLink = document.querySelector(".c-temp");
-celsiusLink.addEventListener("click", showCTemp);
-
-let cTemp = null;
 
 let button = document.querySelector(".current-position-button");
 button.addEventListener("click", getCurrentPosition);
+
+let searchButton = document.querySelector(".search-icon");
+searchButton.addEventListener("click", handleSubmit);
+
+let cancelButton = document.querySelector(".cancel-icon");
+cancelButton.addEventListener("click", cancelCityInput);
 
 search("Zhytomyr");

@@ -3,8 +3,8 @@
 }
 
 .section {
-  max-width: 660px;
-  border: grey solid 3px;
+  max-width: 600px;
+  border: black solid 3px;
   padding: 0 30px;
   background-image: url(images/cloudy.jpg);
   background-position: center;
@@ -17,6 +17,15 @@
   position: absolute;
   right: 7px;
   color: grey;
+  cursor: pointer;
+}
+
+.cancel-icon {
+  position: absolute;
+  right: 30px;
+  font-size: 20px;
+  color: grey;
+  cursor: pointer;
 }
 
 .search-container {
@@ -24,7 +33,7 @@
   position: relative;
   align-items: center;
   margin: 20px 0;
-  border: grey;
+  border: black;
 }
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -33,9 +42,39 @@ input[type="search"]::-webkit-search-cancel-button {
   padding-right: 22px;
 }
 
+.current-position-button {
+  background-color: transparent;
+  margin: 20px 5px;
+  padding: 2px 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 /*current weather*/
 .current-weather {
   margin-bottom: 20px;
+}
+.current-weather__city_title::first-letter {
+  text-transform: capitalize;
+}
+.current-weather__description {
+  font-weight: 600;
+}
+.current-weather__description::first-letter {
+  text-transform: capitalize;
+}
+.c-temp,
+.f-temp,
+.line {
+  font-size: 25px;
+}
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: black;
 }
 .current-weather__add-description {
   font-size: larger;
@@ -51,41 +90,6 @@ input[type="search"]::-webkit-search-cancel-button {
   padding-left: 0;
   padding-right: 0;
 }
-.current-position-button {
-  background-color: transparent;
-  margin: 20px 5px;
-  padding: 2px 20px;
-  font-size: 15px;
-  cursor: pointer;
-}
-.current-date {
-  padding-left: 17px;
-}
-.current-weather__description {
-  padding: 10px 0px 0px 17px;
-  font-weight: 600;
-}
-
-.current-weather__description::first-letter {
-  text-transform: capitalize;
-}
-.current-weather__city_title::first-letter {
-  text-transform: capitalize;
-}
-
-.c-temp,
-.f-temp,
-.line {
-  font-size: 25px;
-}
-.active {
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-  color: black;
-}
 
 /*week description*/
 .forecast {
@@ -100,25 +104,33 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .forecast__date {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
 }
-.forecast__description,
+
 .forecast__temp {
   margin: 10px 0;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.forecast__indicator_humidity,
-.forecast__indicator_UVIndex,
-.forecast__indicator_moonrise,
-.forecast__indicator_moonset {
-  font-weight: 500;
+.forecast__temp_min {
+  opacity: 0.5;
 }
 
 .forecast__img {
   width: 50px;
 }
+
+.indicator-name {
+  display: inline-block;
+  min-width: 83px;
+}
+
+.forecast__indicator_humidity,
+.forecast__indicator_wind {
+  font-weight: 600;
+}
+
 footer {
   text-align: center;
   font-weight: 300;
@@ -127,12 +139,4 @@ footer {
 
 footer a {
   font-weight: 900;
-}
-
-.indicator-name {
-  display: inline-block;
-  min-width: 83px;
-}
-.date {
-  font-size: larger;
 }
