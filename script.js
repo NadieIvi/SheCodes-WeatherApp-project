@@ -73,7 +73,7 @@ function formatMonth(timestamp) {
 function search(city) {
   let apiKey = "31be422c13c4e30e5166b078a65d2565";
   let cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
-  axios.get(cityUrl).then(showWeather);
+  axios.get(cityUrl).then(showWeather).then(cancelCityInput);
 }
 function handleSubmit(event) {
   event.preventDefault();
