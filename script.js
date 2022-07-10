@@ -158,16 +158,6 @@ function showWeather(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
-  if (country === "UA") {
-    document.getElementById("background").style.backgroundImage =
-      "url(images/UA.jpg)";
-  } else if (country === "RU") {
-    document.getElementById("background").style.backgroundImage =
-      "url(images/RU.jpg)";
-  } else {
-    document.getElementById("background").style.backgroundImage =
-      "url(images/cloudy.jpg)";
-  }
 }
 
 // to show weather of current position
